@@ -1,0 +1,46 @@
+/* Estilos específicos da Home (conteúdo principal) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  width: 100vw;
+  height: 100vh;
+  background: url('/img/ranger.png') no-repeat center center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.welcome-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px);
+  border: 1px solid #999;
+  padding: 30px;
+  text-align: left;
+  min-height: 250px;
+}
+
+.system-title {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  color: #007bff;
+  font-size: 24px;
+  font-weight: normal;
+}

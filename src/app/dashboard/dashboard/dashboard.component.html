@@ -1,0 +1,102 @@
+<app-menu></app-menu>
+
+<div class="dashboard-container">
+  <h1 class="dashboard-title">Dashboard FORD</h1>
+
+  <!-- Topo: Seletor e Cards de Métricas -->
+  <div class="top-section">
+    <!-- Card de Seleção -->
+    <div class="card select-card">
+      <div class="card-header">Veículo</div>
+      <div class="card-body">
+        <select id="vehicleSelect" (change)="onVehicleSelect($event)">
+          <option value="">-- Escolha --</option>
+          <option *ngFor="let v of vehicles" [value]="v.id">
+            {{ v.vehicle }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Card: Total de Vendas -->
+    <div class="card">
+      <div class="card-header">Total de Vendas</div>
+      <div class="card-body">
+        <span class="card-value">{{ selectedVehicle?.volumetotal || 0 }}</span>
+        <span class="card-unit">Unid.</span>
+      </div>
+    </div>
+
+    <!-- Card: Conectados -->
+    <div class="card">
+      <div class="card-header">Conectados</div>
+      <div class="card-body">
+        <span class="card-value">{{ selectedVehicle?.connected || 0 }}</span>
+        <span class="card-unit">Unid.</span>
+      </div>
+    </div>
+
+    <!-- Card: Update Software -->
+    <div class="card">
+      <div class="card-header">Update Software</div>
+      <div class="card-body">
+        <span class="card-value">{{ selectedVehicle?.softwareUpdates || 0 }}</span>
+        <span class="card-unit">Unid.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Centro: Imagem do Veículo -->
+  <div class="image-section" *ngIf="selectedVehicle?.img">
+    <img [src]="selectedVehicle?.img" alt="Imagem do veículo" />
+  </div>
+
+  <!-- Base: Tabela com busca por VIN integrada -->
+  <div class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Código - Vin</th>
+          <th>Odômetro</th>
+          <th>Nível de Combustível</th>
+          <th>Status</th>
+          <th>Lat.</th>
+          <th>Long.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- Input de busca integrado na tabela -->
+          <td>
+            <div class="vin-input-container">
+              <input 
+                type="text" 
+                [(ngModel)]="vinBusca" 
+                placeholder="Digite o VIN..." 
+                (keyup.enter)="buscarDadosVeiculo()"
+              />
+              <button (click)="buscarDadosVeiculo()">➔</button>
+            </div>
+          </td>
+          <td>
+            <span *ngIf="detalhesVeiculo">{{ detalhesVeiculo.odometro }} Km</span>
+          </td>
+          <td>
+            <span *ngIf="detalhesVeiculo">{{ detalhesVeiculo.nivelCombustivel }} %</span>
+          </td>
+          <td>
+            <span *ngIf="detalhesVeiculo">{{ detalhesVeiculo.status }}</span>
+          </td>
+          <td>
+            <span *ngIf="detalhesVeiculo">{{ detalhesVeiculo.lat }}</span>
+          </td>
+          <td>
+            <span *ngIf="detalhesVeiculo">{{ detalhesVeiculo.long }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="erroBusca" class="erro">{{ erroBusca }}</div>
+  </div>
+</div>

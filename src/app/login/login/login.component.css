@@ -1,0 +1,230 @@
+/* Reset padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff;
+}
+
+/* Lado Esquerdo - Banner do Carro */
+.login-banner {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.banner-image {
+  max-width: 85%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Lado Direito - Área de Login */
+.login-form-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.login-content {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo Ford */
+.logo {
+  margin-bottom: 50px;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+/* Título Verde do Protótipo */
+.welcome-title {
+  color: #27a468; /* Tom verde correspondente */
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+/* Containers dos Inputs com Ícones Embutidos */
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+/* Borda preta em destaque para o primeiro input como no protótipo */
+.input-container.focused {
+  border: 2px solid #000000;
+  padding: 7px 11px; /* Compensa a espessura da borda */
+}
+
+.input-icon {
+  color: #94a3b8;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.input-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333333;
+}
+
+.input-container input::placeholder {
+  color: #cbd5e1;
+}
+
+/* Ícone de informação (i) e olho de senha dentro do input */
+.info-icon {
+  color: #27a468;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.toggle-password {
+  color: #cbd5e1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Área do Logar Automaticamente (Texto + Switch) */
+.form-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 13px;
+  color: #666666;
+}
+
+.info-icon-switch {
+  color: #27a468;
+  font-size: 14px;
+}
+
+/* Custom Toggle Switch (Interruptor deslizante cinza) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: .3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color: #27a468;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Botão Estilo Protótipo (Cinza) */
+.form-actions button {
+  width: 100%;
+  padding: 12px;
+  background-color: #94a3b8; /* Cinza médio do protótipo */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-actions button:hover:not(:disabled) {
+  background-color: #64748b;
+}
+
+.form-actions button:disabled {
+  background-color: #cbd5e1;
+  color: #f1f5f9;
+  cursor: not-allowed;
+}
+
+/* Alerta de erro */
+.erro-mensagem {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #ef4444;
+  color: white;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* Responsividade Básica */
+@media (max-width: 850px) {
+  .login-banner {
+    display: none;
+  }
+}

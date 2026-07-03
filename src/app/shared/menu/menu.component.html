@@ -1,0 +1,23 @@
+<!-- Botão Hambúrguer -->
+<div class="menu-toggle" (click)="toggleMenu()" [class.hidden]="menuAberto">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" [class.active]="menuAberto" (click)="toggleMenu()"></div>
+
+<!-- Sidebar -->
+<nav class="sidebar" [class.open]="menuAberto">
+  <div class="sidebar-header">
+    <img src="/img/ford.png" alt="Ford Logo" class="logo">
+  </div>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+  </ul>
+  <div class="sidebar-footer">
+    <button class="logout-btn" (click)="logout()">Sair</button>
+  </div>
+</nav>
