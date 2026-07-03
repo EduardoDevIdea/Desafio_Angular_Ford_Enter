@@ -3,9 +3,7 @@
 <div class="dashboard-container">
   <h1 class="dashboard-title">Dashboard FORD</h1>
 
-  <!-- Topo: Seletor e Cards de Métricas -->
   <div class="top-section">
-    <!-- Card de Seleção -->
     <div class="card select-card">
       <div class="card-header">Veículo</div>
       <div class="card-body">
@@ -18,7 +16,6 @@
       </div>
     </div>
 
-    <!-- Card: Total de Vendas -->
     <div class="card">
       <div class="card-header">Total de Vendas</div>
       <div class="card-body">
@@ -27,7 +24,6 @@
       </div>
     </div>
 
-    <!-- Card: Conectados -->
     <div class="card">
       <div class="card-header">Conectados</div>
       <div class="card-body">
@@ -36,7 +32,6 @@
       </div>
     </div>
 
-    <!-- Card: Update Software -->
     <div class="card">
       <div class="card-header">Update Software</div>
       <div class="card-body">
@@ -46,12 +41,10 @@
     </div>
   </div>
 
-  <!-- Centro: Imagem do Veículo -->
   <div class="image-section" *ngIf="selectedVehicle?.img">
     <img [src]="selectedVehicle?.img" alt="Imagem do veículo" />
   </div>
 
-  <!-- Base: Tabela com busca por VIN integrada -->
   <div class="table-section">
     <table>
       <thead>
@@ -66,7 +59,6 @@
       </thead>
       <tbody>
         <tr>
-          <!-- Input de busca integrado na tabela -->
           <td>
             <div class="vin-input-container">
               <input 
